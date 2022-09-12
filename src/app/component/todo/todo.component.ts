@@ -9,15 +9,21 @@ import { ITodoItem } from 'src/app/class/TodoItem';
 export class TodoComponent implements OnInit {
 
   @Input() todoItem: ITodoItem = {};
-  @Output() deleteItemChild = new EventEmitter();
+  @Output() deleteItemChild = new EventEmitter<number>();
+  @Output() toggleItemChild = new EventEmitter<number>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  deleteTodo(date: number){
+  deleteTodo(date: number) {
     console.log(date);
     this.deleteItemChild.emit(date);
+  }
+
+  toggleTodo(date: number) {
+    console.log(`Toggle: ${date}`);
+    this.toggleItemChild.emit(date);
   }
 }
