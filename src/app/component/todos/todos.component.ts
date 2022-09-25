@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ITodoItem } from 'src/app/class/TodoItem';
+import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
    selector: 'app-todos',
@@ -9,39 +10,24 @@ import { ITodoItem } from 'src/app/class/TodoItem';
 
 export class TodosComponent implements OnInit {
 
-   @Input() todos: ITodoItem[] = [
-      {
-         key: 754557,
-         done: false,
-         text: "test Test"
-      },
-      {
-         key: 75455715165,
-         done: false,
-         text: "test Test 2"
-      },
-      {
-         key: 564846,
-         done: false,
-         text: "test Test 3"
-      },
-   ];
-   @Output() deleteItemParent = new EventEmitter<number>();
-   @Output() toggleItemParent = new EventEmitter<number>();
+   todos: ITodoItem[] = [];
+   doneStatus: boolean = false;
 
-   constructor() { }
+   constructor(private todoService: TodoService) { }
 
    ngOnInit(): void {
+      this.todos = this.todoService.getTodoList();
    }
 
-
-   deleteTodoParent(event: number) {
-      console.log("Recived Key In Parent Componeant: " + event);
-      this.deleteItemParent.emit(event);
+   filterTodoList() {
+      return this.todos.filter(item => item.done === this.doneStatus)
    }
 
-   toggleTodoParent(event: number) {
-      console.log("Recived Toggle Key In Parent Componeant: " + event);
-      this.toggleItemParent.emit(event);
+   doneTodos() {
+      return this.todos.filter(item => item.done === true)
+   }
+
+   unDoneTodos() {
+      return this.todos.filter(item => item.done === false)
    }
 }

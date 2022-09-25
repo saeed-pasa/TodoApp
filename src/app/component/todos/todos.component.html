@@ -1,17 +1,17 @@
 <div class="d-flex flex-column align-items-center ">
 	<nav class="col-6 mb-3">
 		<div class="nav nav-tabs" id="nav-tab" role="tablist">
-			<a class="nav-item nav-link active font-weight-bold" id="nav-home-tab">undone
-				<span class="badge badge-secondary">9</span>
+			<a class="nav-item nav-link font-weight-bold" [ngClass]="{ 'active' : !doneStatus}" id="nav-home-tab"
+				(click)="doneStatus = false">Undone
+				<span class="badge badge-secondary"> {{ unDoneTodos().length }}</span>
 			</a>
-			<a class="nav-item nav-link font-weight-bold" id="nav-profile-tab">done
-				<span class="badge badge-success">9</span>
+			<a class="nav-item nav-link font-weight-bold" [ngClass]="{ 'active' : doneStatus}" id="nav-profile-tab"
+				(click)="doneStatus = true">Done
+				<span class="badge badge-success">{{ doneTodos().length }}</span>
 			</a>
 		</div>
 	</nav>
 
-	<app-todo class="col-6 mb-2" *ngFor="let item of todos" [todoItem]="item"
-		(toggleItemChild)="toggleTodoParent($event)" (deleteItemChild)="deleteTodoParent($event)">
-	</app-todo>
+	<app-todo class="col-6 mb-2" *ngFor="let item of filterTodoList()" [todoItem]="item"></app-todo>
 
 </div>

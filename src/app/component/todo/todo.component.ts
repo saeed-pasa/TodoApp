@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ITodoItem } from 'src/app/class/TodoItem';
+import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
   selector: 'app-todo',
@@ -9,21 +10,23 @@ import { ITodoItem } from 'src/app/class/TodoItem';
 export class TodoComponent implements OnInit {
 
   @Input() todoItem: ITodoItem = {};
-  @Output() deleteItemChild = new EventEmitter<number>();
-  @Output() toggleItemChild = new EventEmitter<number>();
+  editStatus: boolean = false;
 
-  constructor() { }
+  constructor(private todoService: TodoService) { }
 
   ngOnInit(): void {
   }
 
-  deleteTodo(date: number) {
-    console.log(date);
-    this.deleteItemChild.emit(date);
+  deleteTodo(key: number) {
+    this.todoService.deleteTodo(key);
   }
 
-  toggleTodo(date: number) {
-    console.log(`Toggle: ${date}`);
-    this.toggleItemChild.emit(date);
+  toggleTodo(key: number) {
+    this.todoService.toggleTodo(key);
+  }
+
+  editsTodo(key: number, editedText: string) {
+    this.editStatus = false;
+    this.todoService.editTodo(key, editedText);
   }
 }
