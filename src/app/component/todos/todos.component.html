@@ -1,13 +1,13 @@
-<div class="d-flex flex-column align-items-center ">
+<div class="d-flex flex-column align-items-center">
 	<nav class="col-6 mb-3">
 		<div class="nav nav-tabs" id="nav-tab" role="tablist">
 			<a class="nav-item nav-link font-weight-bold" [ngClass]="{ 'active' : !doneStatus}" id="nav-home-tab"
-				(click)="doneStatus = false">Undone
-				<span class="badge badge-secondary"> {{ unDoneTodos().length }}</span>
+				(click)="doneStatus = false"><i class="fa-solid fa-list-ul"></i> Undone
+				<span class="badge"> {{ unDoneTodos().length }}</span>
 			</a>
 			<a class="nav-item nav-link font-weight-bold" [ngClass]="{ 'active' : doneStatus}" id="nav-profile-tab"
-				(click)="doneStatus = true">Done
-				<span class="badge badge-success">{{ doneTodos().length }}</span>
+				(click)="doneStatus = true"><i class="fa-solid fa-list-check"></i> Done
+				<span class="badge">{{ doneTodos().length }}</span>
 			</a>
 		</div>
 	</nav>

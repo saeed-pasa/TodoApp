@@ -1,11 +1,36 @@
-.badge-secondary {
-   background-color: tomato
-}
+nav {
+   border: none;
+   background: #fff;
+   box-shadow: 0px 5px 5px 0px #6667ab33;
+   padding: 5px 20px;
+   border-radius: 5px;
 
-.badge-success {
-   background-color: lightgreen
-}
+   .nav-tabs {
+      border: none;
 
-.nav-tabs .nav-link.active {
-   background-color: gray;
+      .nav-link {
+         background-color: #fff;
+         margin-right: 10px;
+         border-radius: 5px;
+
+         .badge {
+            color: #6667AB;
+            border-radius: 50%;
+            border: 1px solid #6667AB;
+         }
+
+         &.active {
+            border: none;
+            background: #6667AB33;
+
+
+            .badge {
+               color: #fff;
+               background-color: #6667AB;
+            }
+         }
+
+
+      }
+   }
 }

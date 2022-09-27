@@ -11,7 +11,7 @@ export class TodoService {
 	todos: ITodoItem[] = [
 		{
 			key: 754557,
-			done: false,
+			done: true,
 			text: "test Test"
 		},
 		{

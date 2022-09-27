@@ -1,0 +1,12 @@
+.add-btn {
+   background-color: #6667AB;
+   color: #fff;
+   border: 1px solid #6667AB;
+   transition: all 0.3s ease-in-out;
+
+   &:hover {
+      background-color: #f5f5ff;
+      color: #6667AB;
+      border: 1px solid #6667AB
+   }
+}

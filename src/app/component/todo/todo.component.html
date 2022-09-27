@@ -1,14 +1,21 @@
-<div *ngIf="!editStatus; else editTodo" class="d-flex justify-content-between align-items-center border rounded p-3">
-	<div>
-		{{ todoItem.text }}
-	</div>
-	<div>
-		<button type="button" class="btn btn-sm me-2" [ngClass]="todoItem.done ? 'btn-success': 'btn-warning' "
-			(click)="toggleTodo(todoItem.key!)">
-			{{ todoItem.done ? "Undone" : "Done" }}
-		</button>
-		<button type="button" class="btn btn-info btn-sm me-2" (click)="editStatus = true">edit</button>
-		<button type="button" class="btn btn-danger btn-sm me-2" (click)="deleteTodo(todoItem.key!)">delete</button>
+<div *ngIf="!editStatus; else editTodo" class="todo-item">
+	<div class="row">
+		<div class="col-md-7">
+			{{ todoItem.text }}
+		</div>
+		<div class="col-md-5 text-end">
+			<button type="button" class="btn btn-sm me-2" [ngClass]="todoItem.done ? 'btn-undo': 'btn-do' "
+				(click)="toggleTodo(todoItem.key!)">
+				<i class="me-1 fa-solid" [ngClass]="todoItem.done ? 'fa-rotate-left': 'fa-check' "></i>
+				{{ todoItem.done ? "Undone" : "Done" }}
+			</button>
+			<button type="button" class="btn btn-edit btn-sm me-2" (click)="editStatus = true">
+				<i class="me-1 fa-solid fa-pen-to-square"></i>edit
+			</button>
+			<button type="button" class="btn btn-delete btn-sm me-2" (click)="deleteTodo(todoItem.key!)">
+				<i class="me-1 fa-solid fa-trash"></i>delete
+			</button>
+		</div>
 	</div>
 </div>
 

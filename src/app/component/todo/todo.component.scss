@@ -1,0 +1,51 @@
+.todo-item {
+   padding: 10px 10px;
+   border-bottom: 1px solid #6667AB55;
+   margin-bottom: 5px;
+   background: #fff;
+   border-radius: 5px;
+
+   .btn {
+      color: #fff;
+   }
+
+   .btn-do {
+      background-color: #43B377;
+      border: 1px solid #43B377;
+
+      &:hover {
+         background-color: #fff;
+         color: #43B377;
+      }
+   }
+
+   .btn-undo {
+      background-color: #acacd1;
+      border: 1px solid #acacd1;
+
+      &:hover {
+         background-color: #fff;
+         color: #acacd1;
+      }
+   }
+
+   .btn-edit {
+      background-color: #35a7ff;
+      border: 1px solid #35a7ff;
+
+      &:hover {
+         background-color: #fff;
+         color: #35a7ff;
+      }
+   }
+
+   .btn-delete {
+      background-color: #ea6759;
+      border: 1px solid #ea6759;
+
+      &:hover {
+         background-color: #fff;
+         color: #ea6759;
+      }
+   }
+}
