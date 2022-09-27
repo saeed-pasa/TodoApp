@@ -1,8 +1,12 @@
-<div class="d-flex justify-content-between align-items-center border rounded p-3">
-   <div>
-      <input class="form-control" type="text" name="TodoEdit" [(ngModel)]="textTodo">
-   </div>
-   <div>
-      <button type="button" class="btn btn-info btn-sm me-2" (click)="TextChange()">edit</button>
+<div class="todo-item">
+   <div class="row">
+      <div class="col-md-7">
+         <input class="form-control" type="text" name="TodoEdit" [(ngModel)]="textTodo">
+      </div>
+      <div class="col-md-5 text-end">
+         <button type="button" class="btn btn-edit btn-sm me-2" (click)="TextChange()">
+            <i class="me-1 fa-solid fa-pen-to-square"></i>edit
+         </button>
+      </div>
    </div>
 </div>
